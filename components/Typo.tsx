@@ -13,9 +13,15 @@ const Type = ({
     textProps = {},
 } : TypoProps ) => {
     const textStyle : TextStyle = {
-      fontSize : size? verticalScale(size): verticalScale(18)
+      fontSize : size? verticalScale(size): verticalScale(18),
+      color,
+      fontWeight
     }
-     return <Text style = {[style]}>Type</Text>
+     return (
+    <Text style = {[textStyle, style]}{...textProps}>
+      {children}
+    </Text>
+    );
 };
 
 export default Type;
